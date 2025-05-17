@@ -1,0 +1,30 @@
+name: Build EXE
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar nexe
+        run: npm install -g nexe
+
+      - name: Compilar para EXE
+        run: nexe index.js --output app.exe
+
+      - name: Upload do EXE
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-exe
+          path: app.exe
