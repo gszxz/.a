@@ -20,11 +20,14 @@ jobs:
       - name: Instalar nexe
         run: npm install -g nexe
 
+      - name: Limpar cache de ações
+        run: git clean -xfd  # Limpa arquivos desnecessários
+
       - name: Compilar para EXE
         run: nexe index.js --output app.exe
 
       - name: Upload do EXE
-        uses: actions/upload-artifact@v2.2.4  # Versão exata e estável
+        uses: actions/upload-artifact@v2  # Usando a versão v2 estável
         with:
           name: app-exe
           path: app.exe
