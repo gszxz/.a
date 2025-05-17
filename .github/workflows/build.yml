@@ -9,10 +9,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout código
+      - name: Baixar código
         uses: actions/checkout@v2
 
-      - name: Instalar Node.js
+      - name: Instalar Node
         uses: actions/setup-node@v3
         with:
           node-version: '18'
@@ -24,7 +24,7 @@ jobs:
         run: nexe index.js --output app.exe
 
       - name: Upload do EXE
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2  # Mudado de v3 para v2
         with:
           name: app-exe
           path: app.exe
