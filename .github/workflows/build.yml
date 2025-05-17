@@ -24,7 +24,7 @@ jobs:
         run: nexe index.js --output app.exe
 
       - name: Upload do EXE
-        uses: actions/upload-artifact@v2  # Versão estável v2
+        uses: actions/upload-artifact@v2.2.4  # Versão exata e estável
         with:
           name: app-exe
           path: app.exe
