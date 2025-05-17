@@ -12,7 +12,7 @@ jobs:
       - name: Baixar código
         uses: actions/checkout@v2
 
-      - name: Instalar Node
+      - name: Instalar Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
@@ -24,7 +24,7 @@ jobs:
         run: nexe index.js --output app.exe
 
       - name: Upload do EXE
-        uses: actions/upload-artifact@v2  # Mudado de v3 para v2
+        uses: actions/upload-artifact@v2.3.0  # Versão exata da ação
         with:
           name: app-exe
           path: app.exe
